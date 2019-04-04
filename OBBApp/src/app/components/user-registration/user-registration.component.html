@@ -1,11 +1,51 @@
 <mat-card class="card-style">
-  <form class="example-form">
+  <h1 style="text-align: center;color:#bababa">Registration</h1>
+  <form #userForm>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food" value="Sushi">
+      <input required matInput placeholder="Name" class="form-control" name="name" #name="ngModel"
+        [(ngModel)]="currentUser.Name">
+      <mat-icon class="error-icon-style" *ngIf="(name.touched || !name.hasError('required')) && !name.valid" matSuffix>
+        error</mat-icon>
+      <mat-error *ngIf="name.hasError('required')">
+        Please enter name
+      </mat-error>
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a comment"></textarea>
+      <input required matInput placeholder="Email" class="form-control" name="email" #email="ngModel"
+        [(ngModel)]="currentUser.Email">
+      <mat-icon class="error-icon-style" *ngIf="(email.touched || !email.hasError('required')) && !email.valid"
+        matSuffix>error</mat-icon>
+      <mat-error *ngIf="email.hasError('required')">
+        Please enter email
+      </mat-error>
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input required matInput placeholder="Phone" class="form-control" name="phone" #phone="ngModel"
+        [(ngModel)]="currentUser.Phone">
+      <mat-icon class="error-icon-style" *ngIf="(phone.touched || !phone.hasError('required')) && !phone.valid"
+        matSuffix>error</mat-icon>
+      <mat-error *ngIf="phone.hasError('required')">
+        Please enter phone
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Zipcode" class="form-control" name="zip" #zip="ngModel"
+        [(ngModel)]="currentUser.Zip">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input (change)="bindCountry()" class="example-full-width" type="text"
+        tabindex="8"  placeholder="Country" matInput
+        [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let co of (filteredCountry | async)" [value]="co.country">
+          <!-- {{ co.country }} -->
+          India
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
   </form>
 </mat-card>
