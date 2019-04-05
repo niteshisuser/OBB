@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild, NgModule} from '@angular/core';
+import { Component, OnInit, ViewChild, NgModule} from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import { User } from '../../models/user.model';
 import {UserRegistrationService } from '../../services/user-registration.service';
@@ -17,12 +17,11 @@ export class UserRegistrationComponent implements OnInit {
     Phone: '',
     Zip: '',
     State: '',
-    Country: ''    
+    Country: ''
   };
-
   countryDetails: [];
   filteredCountry: any;
-  constructor(private userRegistrationService: UserRegistrationService) { 
+  constructor(private userRegistrationService: UserRegistrationService) {
     this.bindCountry();
   }
 
@@ -30,7 +29,7 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   bindCountry() {
-    this.userRegistrationService.getCountryList().subscribe((res:any)=>{
+    this.userRegistrationService.getCountryList().subscribe((res: any) => {
       this.countryDetails =  res;
     });
   }

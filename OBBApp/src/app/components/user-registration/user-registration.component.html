@@ -36,18 +36,16 @@
         [(ngModel)]="currentUser.Zip">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input (change)="bindCountry()" class="example-full-width" type="text"
-        tabindex="8"  placeholder="Country" matInput
+      <input (change)="bindCountry()" class="example-full-width" type="text" tabindex="8" placeholder="Country" matInput
         [matAutocomplete]="auto" />
-        <span style="color:yellow">
-           Select dropdown data
-        </span>
+      <span style="color:yellow">
+        Select dropdown data
+      </span>
       <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let country of (countryDetails | async)" [value]="country.name">
-        {{ country.name}}
+        <mat-option *ngFor="let country of (countryDetails)" [value]="country.name">
+          {{ country.name}}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-
   </form>
 </mat-card>
