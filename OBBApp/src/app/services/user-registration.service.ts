@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class UserRegistrationService {
   getCountryList() {
-    const url = '/shared/country-list.json';
+    const url = '/assets/meta-data//country-list.json';
     return this.http.get(url).pipe(
       map((res) => {
         console.log(res);

@@ -39,10 +39,12 @@
       <input (change)="bindCountry()" class="example-full-width" type="text"
         tabindex="8"  placeholder="Country" matInput
         [matAutocomplete]="auto" />
+        <span style="color:yellow">
+           Select dropdown data
+        </span>
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let co of (filteredCountry | async)" [value]="co.country">
-          <!-- {{ co.country }} -->
-          India
+            <mat-option *ngFor="let country of (countryDetails | async)" [value]="country.name">
+        {{ country.name}}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>

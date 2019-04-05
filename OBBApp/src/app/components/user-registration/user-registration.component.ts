@@ -20,7 +20,7 @@ export class UserRegistrationComponent implements OnInit {
     Country: ''    
   };
 
-  countryDetails: any;
+  countryDetails: [];
   filteredCountry: any;
   constructor(private userRegistrationService: UserRegistrationService) { 
     this.bindCountry();
